@@ -1,0 +1,36 @@
+.category-pills-container {
+  padding: var(--spacing-md) 0;
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.category-pills {
+  display: flex;
+  gap: var(--spacing-sm);
+  overflow-x: auto;
+  padding-bottom: var(--spacing-xs); /* for subtle shadow on active pills */
+}
+
+.pill {
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.pill:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.pill.active {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 10px rgba(183, 126, 112, 0.2);
+}

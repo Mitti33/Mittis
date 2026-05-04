@@ -1,0 +1,168 @@
+.shoppable-image-container {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  /* controls image size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 20px var(--color-shadow);
+  background-color: var(--color-white);
+  line-height: 0;
+  background: #FAF2F0;
+  /* remove gap under image */
+}
+
+.shoppable-main-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  max-height: 85vh;
+  /* Keep it within viewport height */
+}
+
+/* Hotspots */
+.hotspot {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hotspot-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition-fast);
+  z-index: 2;
+}
+
+.hotspot-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.hotspot:hover .hotspot-dot {
+  transform: translate(-50%, -50%) scale(1.2);
+  background-color: var(--color-accent);
+}
+
+.hotspot:hover .hotspot-pulse {
+  animation: none;
+  background-color: rgba(183, 126, 112, 0.3);
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Tooltips */
+.hotspot-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, -12px) scale(0.9);
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: max-content;
+  max-width: 220px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-fast);
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* Caret */
+.hotspot-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--color-white) transparent transparent transparent;
+}
+
+.hotspot.active .hotspot-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -16px) scale(1);
+}
+
+.tooltip-img-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.tooltip-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tooltip-content {
+  display: flex;
+  flex-direction: column;
+  padding-right: 8px;
+  line-height: 1.2;
+}
+
+.tooltip-name {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: 4px;
+}
+
+.tooltip-price {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Tooltip Edge Constraints - Prevent flowing off screen */
+@media (max-width: 768px) {
+  .hotspot-tooltip {
+    /* Basic attempt to keep it centered but not huge */
+  }
+}
