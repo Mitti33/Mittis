@@ -1,73 +1,66 @@
-# React + TypeScript + Vite
+# [Mitti's](https://mittis-app-632905721715.asia-south1.run.app) 👗✨
+> **Attire as you desire.**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mitti's is a modern, Gen Z-focused fashion affiliate web application designed around the "Shop the Look" philosophy. Instead of browsing individual items in isolation, users explore highly aesthetic, fully styled outfits and can interact directly with the images to purchase specific pieces via affiliate links.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+*   **Interactive Shoppable Images:** Hover over specific items (sunglasses, bags, dresses) on a model to reveal pricing and direct affiliate links.
+*   **Pinterest-Style Masonry Grid:** A fluid, visually appealing feed of trending outfits.
+*   **Dynamic Categories:** Filter looks by occasions such as College Fest, Party, Wedding Guest, or Streetwear.
+*   **Save to Favorites:** Local storage integration allows users to heart and save their favorite aesthetics for later.
+*   **Vibe Requests:** A dedicated portal for users to request custom styling for specific events.
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project was built focusing on rapid deployment, high performance, and seamless content management.
 
-## Expanding the ESLint configuration
+*   **Frontend Generation & UI:** React, TypeScript, and Vite (Vibe-coded via Google Antigravity)
+*   **Content Management (CMS):** Sanity.io (Headless architecture for dynamic outfit and hotspot coordinate updates)
+*   **Deployment & Hosting:** Google Cloud CLI & Google Cloud Run
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 💻 Getting Started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+To run this project locally, follow these steps:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Installation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/yourusername/mitti.git](https://github.com/yourusername/mitti.git)
+   ```
+   
+2. Navigate into the project directory:
+  ```bash
+  cd mitti
+  ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3. Install the dependencies:
+  ```bash
+  npm install
+  ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4. Set up environment variables:
+   Create a `.env` file in the root directory and add your Sanity Project ID to connect the backend brain:
+   ```env
+   VITE_SANITY_PROJECT_ID=your_project_id_here
+   VITE_SANITY_DATASET=production
+   ```
+   
+Start the development server:
+  ```bash
+  npm run dev
+  ```
+
+## 🏗️ Architecture Notes
+Mitti's separates the codebase from the data. The frontend is a lightweight Single Page Application (SPA) that fetches JSON data from Sanity.io on load. This allows new outfits, prices, and affiliate links to be updated instantly via the Sanity dashboard without requiring a full code redeployment. 
+
+## 🙌 Acknowledgments
+* Conceptualized and built following the **GeeksforGeeks Build with AI** workshop. 
+* UI/UX driven by modern "vibe coding" methodologies. 
+
+---
+*Designed with 🤎 for the effortless aesthetic.*
